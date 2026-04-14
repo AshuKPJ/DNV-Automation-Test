@@ -1,0 +1,20 @@
+{
+  "name": "dnv-playwright-regression",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cross-site regression suite for DNV websites using Playwright",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "test:desktop": "playwright test --project=chromium-desktop",
+    "test:mobile": "playwright test --project=webkit-mobile",
+    "test:dnv-com": "DNV_TARGET_SITE=www.dnv.com playwright test",
+    "test:dnv-br": "DNV_TARGET_SITE=www.dnv.br playwright test",
+    "test:dnv-it": "DNV_TARGET_SITE=www.dnv.it playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "typescript": "^5.9.3"
+  }
+}
