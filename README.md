@@ -211,3 +211,39 @@ npm test
 ### Windows note for `npm run test:dnv-*`
 
 If you are on Windows PowerShell/CMD, use the npm scripts (`npm run test:dnv-com`, etc.) instead of setting env vars inline manually. These scripts use `cross-env` so they work on Windows, macOS, and Linux.
+
+## Resolving merge conflicts for `README.md` and `package.json`
+
+If GitHub shows conflicts between your branch and `main`:
+
+```bash
+# 1) Update local refs
+git fetch origin
+
+# 2) Checkout your feature branch
+git checkout codex/create-end-to-end-automation-tests-with-playwright-yfejlo
+
+# 3) Merge main into your branch
+git merge origin/main
+```
+
+Git will stop on conflicts. Open `README.md` and `package.json`, then remove conflict markers:
+
+- `<<<<<<< HEAD`
+- `=======`
+- `>>>>>>> origin/main`
+
+Keep the final combined content you want, then run:
+
+```bash
+# 4) Mark conflicts as resolved
+git add README.md package.json
+
+# 5) Complete merge commit
+git commit -m "Resolve merge conflicts with main for README and package scripts"
+
+# 6) Push updated branch
+git push origin codex/create-end-to-end-automation-tests-with-playwright-yfejlo
+```
+
+After push, GitHub PR conflict status will refresh and should be resolved.
